@@ -6,4 +6,19 @@ socket.on('connect', function () {
 socket.on('mensagem', function (message) {
     console.log('nova mensagem:');
     console.log(message.text);
-})
+});
+
+// Handles submitting of new message
+var $form = jQuery('#message-form');
+
+$form.on('submit', function (event) {
+    event.preventDefault();
+    
+    var $message = $form.find('input[name=message]');
+
+    socket.emit('mensagem', {
+        text: $message.val()
+    });
+
+    $message.val('');
+});
