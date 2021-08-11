@@ -12,8 +12,8 @@ io.on('connect', function (socket) {
     socket.on('mensagem', function (message) {
         console.log('Mensagem recebida: ' + message.text);
 
-        //io.emit - manda para todos inclusive o que enviou
-        socket.broadcast.emit('mensagem', message)       //manda para todos menos o que mandou
+        io.emit('mensagem', message)  //manda para todos inclusive o que enviou
+        //socket.broadcast.emit('mensagem', message)       //manda para todos menos o que mandou
     })
 
     socket.emit('mensagem', {
