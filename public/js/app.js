@@ -5,6 +5,7 @@ var socket = io();
 jQuery('.room-title').text(room);
 
 console.log(name + ' deseja entrar na sala ' + room)
+
 socket.on('connect', function () {
     console.log('Conectado ap servidor socket.io!');
     socket.emit('joinRoom', {
