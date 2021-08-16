@@ -13,7 +13,6 @@ socket.on('connect', function () {
         room: room
     });
 });
-
 socket.on('mensagem', function (message) {
     var momentTimestamp = moment.utc(message.timestamp);
     var $messages = jQuery('.messages');
@@ -40,6 +39,5 @@ $form.on('submit', function (event) {
         name: nome,
         text: $message.val()
     });
-
     $message.val('');
 });
